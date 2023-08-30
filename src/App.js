@@ -1,23 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
+import Section from './components/Section';
+import Switch from '@mui/material/Switch';
+import RUBRIC from './rubric.json'
 
 function App() {
+  const renderRubric = () =>{
+    return(
+    RUBRIC.sections.map(i => {
+      return(
+        <Section key = {i.sectionTitle} section = {i}/>
+      )
+    }))
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id="projectTitle">
+        <h1>{RUBRIC.projectName}</h1>
+        <Switch/>
+        
+      </div>
+      {renderRubric()}
+      {/* <Section/>
+      <Section/> */}
     </div>
   );
 }
