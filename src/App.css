@@ -23,6 +23,10 @@
   padding: 20px 40px;
 }
 
+.innerCard{
+  padding: 10px;
+}
+
 .scoring{
   font-size: 11pt;
   margin-left: 25px;
