@@ -1,0 +1,233 @@
+{   "projectName": "Module 2",
+    "sections":[
+        {
+            "sectionTitle": "Deployment",
+            "questions": [
+                {
+                    "criteria": "Student submitted deployed live application URL",
+                    "type": "boolean",
+                    "score": 8,
+                    "message": "Student did not submit a deployed live application URL"
+                },
+                {
+                    "criteria": "Application loads at deployed URL",
+                    "type": "boolean",
+                    "score": 8,
+                    "message": "Application does not load at the deployed URL given"
+                },
+                {
+                    "criteria": "Student submitted application GitHub URL",
+                    "type": "boolean",
+                    "score": 8,
+                    "message": "Student did not submit a GitHub URL"
+                },
+                {
+                    "criteria": "GitHub Repo contains application code",
+                    "type": "boolean",
+                    "score": 8,
+                    "message": "GitHub Repo does not contain application code"
+                }
+            ]},
+        {
+            "sectionTitle": "Technical Acceptance Criteria",
+            "message": "Keep your browser console open and watch out for errors from this point forward.",
+            "questions":[
+            {
+                "criteria": "Homepage contains a centered heading with the school name",
+                "type": "boolean",
+                "score":5,
+                "message": "Homepage does not contain a centered heading with the school name"
+            },
+            {
+                "criteria": "Uses a color theme present throughout",
+                "type": "boolean",
+                "score":5,
+                "message": "Project does not use a color theme present throughout"
+            },
+            {
+                "criteria": "The main content section of the homepage takes up 50% of the page in width",
+                "type": "boolean",
+                "score":5,
+                "message": "The main content section of the homepage does not take up 50% of the page in width"
+            },
+            {
+                "criteria": "The homepage main content contains inline links to other sites/locations",
+                "type": "boolean",
+                "score":5,
+                "message": "The homepage main content does not contain inline links to other sites/locations"
+            },
+            {
+                "criteria": "The homepage body reflects college professionalism and utilizes lists and links to drive flow",
+                "type": "likert",
+                "options": [
+                    {
+                        "description": "The homepage does not look professional or use organization or links",
+                        "score": 0
+                    },
+                    {
+                        "description": "The homepage either looks professional or uses organization or links",
+                        "score": 3
+                    },
+                    {
+                        "description": "The homepage looks professional and uses organization and/or links",
+                        "score": 5
+                    }
+                ]
+            },
+            {
+                "criteria": "There are headings present and identifiable on the homepage",
+                "type": "boolean",
+                "score":5,
+                "message": "There are not headings present and identifiable on the homepage"
+            },
+            {
+                "criteria": "The course choices give a list of at least 10 courses and an option to see more",
+                "type": "boolean",
+                "score":5,
+                "message": "The course choices does not give a list of at least 10 courses and an option to see more"
+            },
+            {
+                "criteria": "The course choices section takes up 25% of the page's width",
+                "type": "boolean",
+                "score":5,
+                "message": "The course choices section does not take up 25% of the page's width"
+            },
+            {
+                "criteria": "The navigation section takes up 25% of the page's width",
+                "type": "boolean",
+                "score":5,
+                "message": "The navigation section does not take up 25% of the page's width"
+            },
+            {
+                "criteria": "The application's navigation includes inert links to 6 sections",
+                "type": "likert",
+                "options": [
+                    {
+                        "description": "The homepage's navigation doesn't include any links",
+                        "score": 0
+                    },
+                    {
+                        "description": "The homepage's navigation is missing 3 links or is not spaced evenly in a column",
+                        "score": 1
+                    },
+                    {
+                        "description": "The homepage's navigation is missing a link",
+                        "score": 3
+                    },
+                    {
+                        "description": "The homepage's navigation includes all links in an organized fashion",
+                        "score": 5
+                    }
+                ]
+            },
+            {
+                "criteria": "The application's navigation links change/animate on hovering",
+                "type": "boolean",
+                "score":5,
+                "message": "The application's navigation links do not change/animate on hovering"
+            },
+            {
+                "criteria": "The homepage contains a footer with a reference to the college",
+                "type": "boolean",
+                "score":5,
+                "message": "The homepage does not contain a footer with a reference to the college"
+            },
+            {
+                "criteria": "The homepage uses flexbox and/or cssGrid appropriately",
+                "type": "likert",
+                "options": [
+                    {
+                        "description": "The homepage is missing cssGrid and flexbox",
+                        "score": 0
+                    },
+                    {
+                        "description": "The homepage references flexbox or grid but does not show a significant change",
+                        "score": 1
+                    },
+                    {
+                        "description": "The homepage uses flexbox inappropriately for the context",
+                        "score": 3
+                    },
+                    {
+                        "description": "The homepage uses flexbox and/or cssGrid appropriately",
+                        "score": 5
+                    }
+                ]
+            }
+        ]},
+        {
+            "sectionTitle": "Repository Quality",
+            "questions":[
+            {
+                "criteria": "Repository has a unique name",
+                "type": "boolean",
+                "score":2,
+                "message": "GitHub Repo does not have a unique name"
+            },
+            {
+                "criteria": "Repository follows best practices for file structure and naming conventions",
+                "type": "boolean",
+                "score":2,
+                "message": "Repository does not follow best practices for file structure and naming conventions"
+            },
+            {
+                "criteria": "Repository follows best practices for class/id naming conventions, indentation, quality, comments, etc.",
+                "type": "boolean",
+                "score":2,
+                "message": "Repository does not follow best practices for class/id naming conventions, indentation, quality, comments, etc."
+            },
+            {
+                "criteria": "Repository contains multiple descriptive commit messages",
+                "type": "boolean",
+                "score":2,
+                "message": "Repository does not contain adequate descriptive commit messages"
+            }
+        ]},
+        {
+            "sectionTitle": "Application Quality",
+            "questions": [
+            {
+                "criteria": "Homepage resembles the expected look of a college homepage as described in project instructions",
+                "type": "likert",
+                "options": [
+                    {
+                        "description": "Homepage does not resemble the expected look of a college homepage as described in homework instructions",
+                        "score": 0
+                    },
+                    {
+                        "description": "Homepage could resemble the expected look of a college homepage a lot more closely",
+                        "score": 5
+                    },
+                    {
+                        "description": "Homepage could resemble the expected look of a college homepage a little more closely",
+                        "score": 10
+                    },
+                    {
+                        "description": "Homepage resembles the expected look of a college homepage as described in project instructions",
+                        "score": 15
+                    }
+                ]
+            }
+        ]},
+        {
+            "sectionTitle":"Academic Integrity",
+            "message": "If any of the following are true, partner with your instructor to investigate plagiarism.",
+            "questions":[
+            {
+                "criteria": "Application contains a low number of commits",
+                "type": "boolean",
+                "score":0
+            },
+            {
+                "criteria": "Application codebase appears advanced for the student, at this point in the course, or in general",
+                "type": "boolean",
+                "score":0
+            },
+            {
+                "criteria": "Application package.json file references a different author and/or repository",
+                "type": "boolean",
+                "score":0
+            }
+        ]}
+    ]
+}
