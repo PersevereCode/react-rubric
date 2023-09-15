@@ -1,14 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import Section from './components/Section';
-import Button from '@mui/material/Button'
+
 import Switch from '@mui/material/Switch';
 import RUBRIC from './rubric.json'
-import Card from '@mui/material/Card';
+
 import { useState } from 'react';
+import GradeBox from './components/GradeBox';
 
 function App() {
   const [gradeObj, setGradeObj] = useState({});
+  const [gradeNotesObj, setGradeNotesObj] = useState({})
 
   const renderRubric = () =>{
     return(
@@ -17,20 +18,17 @@ function App() {
           <Section key = {i.sectionTitle} 
                   gradeObj={gradeObj} 
                   setGradeObj={setGradeObj} 
-                  section = {i}/>
+                  section = {i}
+                  gradeNotesObj = {gradeNotesObj}
+                  setGradeNotesObj = {setGradeNotesObj}/>
         )
       })
     )
   }
 
-  const renderGradeSheet = () =>{
-    return(
-      gradeObj.map(i => {
-        return(
-          'hello'
-        )
-      })
-    )
+  const renderGradeBox = () =>{
+    return <GradeBox key = 'grades'
+            gradeNotesObj = {gradeNotesObj}/>;
   }
   
   return (
@@ -39,26 +37,9 @@ function App() {
         <h1>{RUBRIC.projectName}</h1>
         <Switch/>
       </div>
-      {renderRubric()}
-      <div className='sectionCardContainer'>
-        <Card sx={{ minWidth: 275 }} className='card'>
-            <h2 className="sectionHead">Recommended Grade: F</h2>
-            <h2 className="sectionHead">Total: (0/100)</h2>
-            <Card sx={{ minWidth: 275, backgroundColor: '#d5d9de' }} className='innerCard'>
-              <div>
-                <h3>Deployment</h3>
-                <div className='gradeBox'>
-                  <p>* Application isn't deployed</p>
-                  <p>* Application isn't deployed</p>
-                  <p>* Application isn't deployed</p>
-                  <p>* Application isn't deployed</p>
-                </div>
-                <Button>Copy to Clipboard</Button>
-                </div>
-            </Card>
-        </Card>
+        {renderRubric()}
+        {renderGradeBox()}
       </div>
-    </div>
   );
 }
 
