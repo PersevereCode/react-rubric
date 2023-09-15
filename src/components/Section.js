@@ -7,7 +7,7 @@ import { queryByTestId } from '@testing-library/react';
 import Question from './Question';
 
 function Section({section, gradeObj, setGradeObj}) {
-    const {sectionTitle, questions} = section;
+    const {sectionTitle, questions,} = section;
 
     const [sectionTotal, setSectionTotal] = useState(0);
     const [sectionScoringObj, setSectionScoringObj] = useState({});
@@ -36,7 +36,8 @@ function Section({section, gradeObj, setGradeObj}) {
             questions.map(question => {
                 return <div><Question question = {question} 
                 setSectionScoringObj = {setSectionScoringObj}
-                sectionScoringObj = {sectionScoringObj}/></div>;
+                sectionScoringObj = {sectionScoringObj}
+                setSectionScore = {setSectionScore}/></div>;
             })
         )
     }
@@ -48,7 +49,7 @@ function Section({section, gradeObj, setGradeObj}) {
   return (
     <div className='sectionCardContainer'>
             <Card sx={{ minWidth: 275 }} className='card'>
-                <h2 className="sectionHead">{sectionTitle}<span className='scoring'>0/{sectionTotal}</span></h2>
+                <h2 className="sectionHead">{sectionTitle}<span className='scoring'>{sectionScore}/{sectionTotal}</span></h2>
                 <h3 className="subHeading">{section.message}</h3>
                 {renderForm()}
             </Card>
