@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import FormLabel from '@mui/material/FormLabel';
 import Question from './Question';
 
-function Section({section, gradeObj, setGradeObj}) {
+function Section({section, gradeObj, setGradeObj, sectionTotals, setSectionTotals}) {
     const {sectionTitle, questions,} = section;
 
     const [sectionTotal, setSectionTotal] = useState(0);
@@ -28,6 +28,9 @@ function Section({section, gradeObj, setGradeObj}) {
         setSectionScoringObj(scoreObj)
     }, [])
 
+    
+    
+
     useEffect(() => {
         const obj = {...gradeObj};
         obj[sectionTitle] = sectionScoringObj;
@@ -38,7 +41,9 @@ function Section({section, gradeObj, setGradeObj}) {
     const renderForm = () => {
         return(
             questions.map(question => {
-                return <div><Question question = {question} 
+                return <div key={question.message}>
+                    <Question 
+                question = {question} 
                 setSectionScoringObj = {setSectionScoringObj}
                 sectionScoringObj = {sectionScoringObj}
                 setSectionScore = {setSectionScore}/></div>;

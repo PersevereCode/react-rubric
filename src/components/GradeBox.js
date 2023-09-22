@@ -4,9 +4,8 @@ import Button from '@mui/material/Button';
 import GradeBoxSection from './GradeBoxSection';
 import { useEffect, useState } from 'react';
 
-function GradeBox({gradeObj}) {
+function GradeBox({gradeObj, totalPossible}) {
   const [total, setTotal] = useState(0)
-
 
   const totalScore = () => {
     let sum = 0
@@ -21,7 +20,8 @@ function GradeBox({gradeObj}) {
   const renderGradeBoxSections = () => {
     return(
       Object.keys(gradeObj).map(sectionTitle => {
-        return <GradeBoxSection section = {gradeObj[sectionTitle]}
+        return <GradeBoxSection key={sectionTitle}
+                                section = {gradeObj[sectionTitle]}
                                 sectionTitle = {sectionTitle}/>
       })
     )
@@ -35,7 +35,7 @@ function GradeBox({gradeObj}) {
     <div className='sectionCardContainer'>
         <Card sx={{ minWidth: 275 }} className='card'>
             <h2 className="sectionHead">Recommended Grade: F</h2>
-            <h2 className="sectionHead">Total: ({total}/100)</h2>
+            <h2 className="sectionHead">Total: ({total}/{totalPossible})</h2>
             <Card sx={{ minWidth: 275, backgroundColor: '#d5d9de' }} className='innerCard'>
               {renderGradeBoxSections()}
             </Card>

@@ -7,14 +7,18 @@ function GradeBoxSection({section, sectionTitle}) {
         return(
             <div className='gradeBox'>
                 {Object.keys(section).map(criteria =>{
-                    return <p>* {criteria}</p>
+                    if(!section[criteria]){
+                        return <p key= {criteria}>* {criteria}</p>
+                    }else{
+                        
+                    }
                 })}
             </div>
         )
     }
   return (
     <div>
-        <h3>Deployment</h3>
+        <h3>{sectionTitle}</h3>
         {renderCriteria()}
         <Button>Copy to Clipboard</Button>
     </div>
