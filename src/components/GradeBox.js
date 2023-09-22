@@ -1,24 +1,43 @@
 import React from 'react';
 import Card from '@mui/material/Card';
-import Button from '@mui/material/Button'
+import Button from '@mui/material/Button';
+import GradeBoxSection from './GradeBoxSection';
+import { useEffect, useState } from 'react';
 
-function GradeBox() {
+function GradeBox({gradeObj}) {
+  const [total, setTotal] = useState(0)
+
+
+  const totalScore = () => {
+    let sum = 0
+    for(let section in gradeObj){
+      for(let question in gradeObj[section]){
+        sum += gradeObj[section][question]
+      }
+    }
+    setTotal(sum)
+  }
+
+  const renderGradeBoxSections = () => {
+    return(
+      Object.keys(gradeObj).map(sectionTitle => {
+        return <GradeBoxSection section = {gradeObj[sectionTitle]}
+                                sectionTitle = {sectionTitle}/>
+      })
+    )
+  }
+
+  useEffect(() => {
+   totalScore()
+  }, [gradeObj])
+
   return (
     <div className='sectionCardContainer'>
         <Card sx={{ minWidth: 275 }} className='card'>
             <h2 className="sectionHead">Recommended Grade: F</h2>
-            <h2 className="sectionHead">Total: (0/100)</h2>
+            <h2 className="sectionHead">Total: ({total}/100)</h2>
             <Card sx={{ minWidth: 275, backgroundColor: '#d5d9de' }} className='innerCard'>
-              <div>
-                <h3>Deployment</h3>
-                <div className='gradeBox'>
-                  <p>* Application isn't deployed</p>
-                  <p>* Application isn't deployed</p>
-                  <p>* Application isn't deployed</p>
-                  <p>* Application isn't deployed</p>
-                </div>
-                <Button>Copy to Clipboard</Button>
-                </div>
+              {renderGradeBoxSections()}
             </Card>
         </Card>
     </div>

@@ -2,8 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import Card from '@mui/material/Card';
 import FormLabel from '@mui/material/FormLabel';
-
-import { queryByTestId } from '@testing-library/react';
 import Question from './Question';
 
 function Section({section, gradeObj, setGradeObj}) {
@@ -30,6 +28,12 @@ function Section({section, gradeObj, setGradeObj}) {
         setSectionScoringObj(scoreObj)
     }, [])
 
+    useEffect(() => {
+        const obj = {...gradeObj};
+        obj[sectionTitle] = sectionScoringObj;
+        setGradeObj(obj)
+    }, [sectionScoringObj])
+    
 
     const renderForm = () => {
         return(
@@ -41,10 +45,6 @@ function Section({section, gradeObj, setGradeObj}) {
             })
         )
     }
-
-    // const computeScore = (e) = {
-
-    // }
     
   return (
     <div className='sectionCardContainer'>

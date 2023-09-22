@@ -70,7 +70,6 @@ function Question({ question,
         for(let key in sectionScoringObj){
             total += sectionScoringObj[key];
         }
-        console.log(total)
         setSectionScore(total);
     }
 
