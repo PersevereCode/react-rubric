@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import FormLabel from '@mui/material/FormLabel';
 import Question from './Question';
 
-function Section({section, gradeObj, setGradeObj, sectionTotals, setSectionTotals}) {
+function Section({section, gradeObj, setGradeObj}) {
     const {sectionTitle, questions,} = section;
 
     const [sectionTotal, setSectionTotal] = useState(0);

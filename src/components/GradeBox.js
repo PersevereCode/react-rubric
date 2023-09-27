@@ -4,8 +4,9 @@ import Button from '@mui/material/Button';
 import GradeBoxSection from './GradeBoxSection';
 import { useEffect, useState } from 'react';
 
-function GradeBox({gradeObj, totalPossible}) {
+function GradeBox({gradeObj, totalPossible, sectionTotals}) {
   const [total, setTotal] = useState(0)
+
 
   const totalScore = () => {
     let sum = 0
@@ -22,7 +23,8 @@ function GradeBox({gradeObj, totalPossible}) {
       Object.keys(gradeObj).map(sectionTitle => {
         return <GradeBoxSection key={sectionTitle}
                                 section = {gradeObj[sectionTitle]}
-                                sectionTitle = {sectionTitle}/>
+                                sectionTitle = {sectionTitle}
+                                totalPossibleScoreInSection = {sectionTotals[sectionTitle]}/>
       })
     )
   }
