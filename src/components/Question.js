@@ -20,6 +20,7 @@ function Question({ question,
     } = question;
 
     const [questionValue, setQuestionValue] = useState(0);
+    const [highestLikertValue, setHighestLikertValue] = useState(0)
 
     const renderQuestion = () => {
         if(type === 'boolean'){
@@ -59,10 +60,10 @@ function Question({ question,
         const option = options[e.target.value];
         obj[option.description] = option.score;
         //add the value and description to the object
+        
         setQuestionValue(option.score);
         setSectionScoringObj(obj);
         //set the scoring object
-
     }
 
     function totalSection(){
@@ -76,7 +77,6 @@ function Question({ question,
     useEffect(() => { //Every time a score changes
       totalSection()
     }, [sectionScoringObj])
-    
 
     const renderBoolean = () =>{
         return(
@@ -97,7 +97,7 @@ function Question({ question,
     const renderLikert = (e) =>{
         return(
             <div key={criteria} className='likert'>
-                <p className='question'>{criteria}<span className='scoring'>{questionValue}/5</span></p>
+                <p className='question'>{criteria}<span className='scoring'>{questionValue}/{highestLikertValue}</span></p>
                 <FormControl>
                 <Select
                     defaultValue={0}
@@ -116,6 +116,16 @@ function Question({ question,
             </div>  
         )
     }
+
+    useEffect(() => {
+        let highestPossible = 0
+        for(let key in options){
+            const currentScore = +options[key].score;
+            highestPossible = currentScore > highestPossible ? currentScore : highestPossible
+        }
+        setHighestLikertValue(highestPossible)
+    }, [])
+    
 
   return (
     <div>{renderQuestion()}</div>
