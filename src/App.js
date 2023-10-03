@@ -76,7 +76,8 @@ function App() {
     return <GradeBox key = 'grades'
             gradeObj = {gradeObj}
             totalPossible = {totalPossible}
-            sectionTotals = {sectionTotals}/>;
+            sectionTotals = {sectionTotals}
+            RUBRIC = {RUBRIC}/>;
   }
   
   return (
