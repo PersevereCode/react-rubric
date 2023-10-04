@@ -24,18 +24,23 @@ function GradeBoxSection({section,
         return(
             <div className='gradeBox'>
                 {Object.keys(section).map(criteria =>{
-                    if(!section[criteria]){
+                    console.log(section)
+                    if(!section[criteria] && sectionTitle !== 'Academic Integrity'){
+                        return <p className= {sectionTitle.split(' ').join('') +' groupCopy'} key= {criteria}>* {criteria}</p>
+                    }else if(Number.isNaN(section[criteria])){
                         return <p className= {sectionTitle.split(' ').join('') +' groupCopy'} key= {criteria}>* {criteria}</p>
                     }else{
+                        //find likert question in rubric
                         let currentRubricQuestion = rubricSection.questions.find((question)=>{
                             if(question.options){
                                 for(let option of question.options){
                                     if(option.description === criteria){
                                         return true
                                     }
+                                }
                             }
-                        }
                         })
+                        // check if score is highest possible
                         if(currentRubricQuestion){
                             let isHighestPossible = true;
                             for(let option of currentRubricQuestion.options){
@@ -43,16 +48,14 @@ function GradeBoxSection({section,
                                     isHighestPossible = false;
                                 }
                             }
+                            // if score is not highest log note in the grade section
                             if(!isHighestPossible){
                             return <p className= {sectionTitle.split(' ').join('') +' groupCopy'} key= {criteria}>* {criteria}</p>
                             }
-                        }
-                        
-                    }
-                        
-                        
-                    }
-                )}
+                        }   
+                    }     
+                }
+            )}
             </div>
         )
     }
