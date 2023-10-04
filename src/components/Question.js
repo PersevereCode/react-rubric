@@ -66,10 +66,12 @@ function Question({ question,
         //set the scoring object
     }
 
+
     function totalSection(){
         let total = 0;
         for(let key in sectionScoringObj){
-            total += sectionScoringObj[key];
+            let score = sectionScoringObj[key]
+            total += ((Number.isNaN(score)) ? 0 : score);
         }
         setSectionScore(total);
     }
@@ -81,14 +83,14 @@ function Question({ question,
     const renderBoolean = () =>{
         return(
         <div key={criteria}>
-            <p className='question'>{criteria}<span className='scoring'>{questionValue} /{typeof score === 'number' ? score : (options[options.length - 1]).score}</span></p>
+            <p className='question'>{criteria}<span className='scoring'>{Number.isInteger(parseInt(questionValue))? questionValue : 0} /{typeof score === 'number' ? score : (options[options.length - 1]).score}</span></p>
             <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 defaultValue={0}
                 name="radio-buttons-group"
                 onChange={(e)=> handleBoolOnChange(e)}
             >
-                <FormControlLabel value={score} control={<Radio />} label="True" />
+                <FormControlLabel value={score ? score : true} control={<Radio />} label="True" />
                 <FormControlLabel value={0} control={<Radio />} label="False" />
             </RadioGroup>
         </div>)

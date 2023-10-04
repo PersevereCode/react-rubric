@@ -14,7 +14,9 @@ function GradeBox({gradeObj, totalPossible, sectionTotals, RUBRIC}) {
     let sum = 0
     for(let section in gradeObj){
       for(let question in gradeObj[section]){
-        sum += gradeObj[section][question]
+        if(!Number.isNaN(gradeObj[section][question])){
+          sum += gradeObj[section][question]
+        }
       }
     }
     setGrade(returnGrade(sum/ totalPossible))

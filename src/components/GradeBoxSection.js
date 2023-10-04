@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@mui/material'
 
-function GradeBoxSection({section, sectionTitle, totalPossibleScoreInSection, rubricSection}) {
+function GradeBoxSection({section, 
+                          sectionTitle, 
+                          totalPossibleScoreInSection, 
+                          rubricSection}) {
     const [totalScored, setTotalScored] = useState(0)
     const totalScore = () => {
         let total = 0;
         for(let key in section){
-            total += section[key]
+            if(!Number.isNaN(section[key])){
+                total += section[key]
+            }
         }
         setTotalScored(total)
     }
@@ -23,18 +28,26 @@ function GradeBoxSection({section, sectionTitle, totalPossibleScoreInSection, ru
                         return <p className= {sectionTitle.split(' ').join('') +' groupCopy'} key= {criteria}>* {criteria}</p>
                     }else{
                         let currentRubricQuestion = rubricSection.questions.find((question)=>{
-                            let found = question.options ? question.options.find((option)=> option.description === criteria) : [];
-                            return found ? question : undefined
-                        })
-                        let isHighestPossible = true;
-                        for(let option of currentRubricQuestion.options){
-                            if(option.score > section[criteria]){
-                                isHighestPossible = false;
+                            if(question.options){
+                                for(let option of question.options){
+                                    if(option.description === criteria){
+                                        return true
+                                    }
                             }
                         }
-                        if(!isHighestPossible){
-                        return <p className= {sectionTitle.split(' ').join('') +' groupCopy'} key= {criteria}>* {criteria}</p>
+                        })
+                        if(currentRubricQuestion){
+                            let isHighestPossible = true;
+                            for(let option of currentRubricQuestion.options){
+                                if(option.score > section[criteria]){
+                                    isHighestPossible = false;
+                                }
+                            }
+                            if(!isHighestPossible){
+                            return <p className= {sectionTitle.split(' ').join('') +' groupCopy'} key= {criteria}>* {criteria}</p>
+                            }
                         }
+                        
                     }
                         
                         
