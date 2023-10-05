@@ -39,7 +39,7 @@ function App() {
     return(
       RUBRIC.sections.map(i => {
         return(
-          <Section key = {i.sectionTitle} 
+          <Section key = {i.sectionTitle.split(' ').join('')} 
                   gradeObj={gradeObj} 
                   setGradeObj={setGradeObj} 
                   section = {i}

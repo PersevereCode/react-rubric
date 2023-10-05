@@ -24,7 +24,6 @@ function GradeBoxSection({section,
         return(
             <div className='gradeBox'>
                 {Object.keys(section).map(criteria =>{
-                    console.log(section)
                     if(!section[criteria] && sectionTitle !== 'Academic Integrity'){
                         return <p className= {sectionTitle.split(' ').join('') +' groupCopy'} key= {criteria}>* {criteria}</p>
                     }else if(Number.isNaN(section[criteria])){
